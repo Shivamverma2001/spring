@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Form</title>
+    <style>
+        .error{
+        font:"red";
+    </style>
+</head>
+<body>
+<form th:action="@{/processCustomerForm}" th:object="${customer}" method="post">
+    Enter your first name <input type="text" placeholder="Enter your first name" th:field="*{firstName}"><br>
+
+    Enter your last name(*) <input type="text" placeholder="Enter your last name" th:field="*{lastName}"><br>
+    <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="error"></span>
+
+    Free Passes <input type="number" th:field="*{freePasses}"><br>
+    <span th:if="${#fields.hasErrors('freePasses')}" th:errors="*{freePasses}" class="error"></span>
+
+    <input type="submit">
+</form>
+</body>
+</html>
