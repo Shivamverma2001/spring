@@ -11,6 +11,18 @@
     <br><br>
     Enter your last name <input type="text" th:field="*{lastName}">
     <br><br>
+
+    <select th:field="*{country}">
+        <option th:each="tempCountry:${countries}" th:value="${tempCountry}" th:text="${tempCountry}"/>
+    </select>
+    <br><br>
+
+    <input type="radio" th:field="*{favouriteLanguage}" th:each="tempLanguage:${languages}" th:value="${tempLanguage}" th:text="${tempLanguage}"/>
+
+    <br><br>
+    <input type="checkbox" th:field="*{operatingSystems}" th:each="os:${operatingSystems}" th:value="${os}" th:text="${os}"/>
+
+    <br><br>
     <input type="submit">
 </form>
 </body>

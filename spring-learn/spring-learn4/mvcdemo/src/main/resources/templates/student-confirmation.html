@@ -5,6 +5,12 @@
     <title>Student Confirmation</title>
 </head>
 <body>
-Hi this is student confirmation <span th:text="${student.firstName} + ' ' + ${student.lastName}"/>
+Hi this is student confirmation <span th:text="${student.firstName} + ' ' + ${student.lastName}"/><br>
+Country: <span th:text="${student.country}"/><br>
+Favourite Language: <span th:text="${student.favouriteLanguage}"/><br>
+Favourite Operating Systems:
+<ul>
+    <li th:each="os:${student.operatingSystems}" th:text="${os}"/>
+</ul>
 </body>
 </html>
